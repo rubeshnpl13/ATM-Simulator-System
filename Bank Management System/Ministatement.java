@@ -19,7 +19,7 @@ public class Ministatement extends JFrame implements ActionListener {
         l1 = new JLabel();
         add(l1);
 
-        JLabel l2 = new JLabel("Indian Bank");
+        JLabel l2 = new JLabel("Nepali Bank");
         l2.setBounds(150, 20, 100, 20);
         add(l2);
 

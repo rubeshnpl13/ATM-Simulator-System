@@ -79,7 +79,7 @@ public class Fastcash extends JFrame implements ActionListener {
             ResultSet rs = c.s.executeQuery("select * from bank where pin = '"+pin+"'");
             int balance = 0;
             while (rs.next()) {
-                if (rs.getString("type").equals("Deposit")) {
+                if (rs.getString("mode").equals("Deposit")) {
                     balance += Integer.parseInt(rs.getString("amount"));
                 } else {
                     balance -= Integer.parseInt(rs.getString("amount"));

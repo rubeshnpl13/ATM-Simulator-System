@@ -110,23 +110,25 @@ public class Register extends JFrame implements ActionListener {
         addressTF.setBounds(300,440,400,30);
         add(addressTF);
 
-        JLabel city = new JLabel("City:");
-        city.setFont(new Font("Raleway", Font.BOLD, 22));
-        city.setBounds(100,490,200,30);
-        add(city);
-        cityTF = new JTextField();
-        cityTF.setFont(new Font("Raleway", Font.BOLD, 14));
-        cityTF.setBounds(300,490,400,30);
-        add(cityTF);
-
         JLabel state = new JLabel("State:");
         state.setFont(new Font("Raleway", Font.BOLD, 22));
-        state.setBounds(100,540,200,30);
+        state.setBounds(100,490,200,30);
         add(state);
         stateTF = new JTextField();
         stateTF.setFont(new Font("Raleway", Font.BOLD, 14));
-        stateTF.setBounds(300,540,400,30);
+        stateTF.setBounds(300,490,400,30);
         add(stateTF);
+
+        JLabel city = new JLabel("City:");
+        city.setFont(new Font("Raleway", Font.BOLD, 22));
+        city.setBounds(100,540,200,30);
+        add(city);
+        cityTF = new JTextField();
+        cityTF.setFont(new Font("Raleway", Font.BOLD, 14));
+        cityTF.setBounds(300,540,400,30);
+        add(cityTF);
+
+
 
         JLabel pincode = new JLabel("Pin Code:");
         pincode.setFont(new Font("Raleway", Font.BOLD, 22));
