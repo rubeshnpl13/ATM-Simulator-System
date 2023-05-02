@@ -40,7 +40,7 @@ public class Balanceenquiry extends JFrame implements ActionListener {
             DBCon c1 = new DBCon();
             ResultSet rs = c1.s.executeQuery("select * from bank where pin = '"+pin+"'");
             while (rs.next()) {
-                if (rs.getString("mode").equals("Deposit")) {
+                if (rs.getString("type").equals("Deposit")) {
                     balance += Integer.parseInt(rs.getString("amount"));
                 } else {
                     balance -= Integer.parseInt(rs.getString("amount"));

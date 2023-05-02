@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.util.Random;
+import com.toedter.calendar.JTextFieldDateEditor;
 import com.toedter.calendar.JDateChooser;
 
 public class Register extends JFrame implements ActionListener {
@@ -73,6 +74,7 @@ public class Register extends JFrame implements ActionListener {
         add(dob);
         dateChooser = new JDateChooser();
         dateChooser.setBounds(300, 240,200,30);
+
         add(dateChooser);
 
         JLabel gender = new JLabel("Gender:");
@@ -178,6 +180,7 @@ public class Register extends JFrame implements ActionListener {
         setVisible(true);
         setLocation(230, 50);
     }
+
     public static void main(String[] args){
         new Register();
     }
@@ -209,8 +212,8 @@ public class Register extends JFrame implements ActionListener {
             String pin = pinTF.getText();
             String state = cbstate.getSelectedItem().toString();
             try{
-                if(name.equals("")){
-                    JOptionPane.showMessageDialog(null, "Name is required");
+                if(name.equals("")|| fname.equals("") || dob.equals("") || gender.equals("") || email.equals("")||address.equals("")||city.equals("")||pin.equals("")){
+                    JOptionPane.showMessageDialog(null, "All fields are required");
                 }else{
                     DBCon c = new DBCon();
                     String query = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital_status+"','"+address+"','"+city+"','"+pin+"','"+state+"')";

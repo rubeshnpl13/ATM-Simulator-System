@@ -19,7 +19,7 @@ public class Ministatement extends JFrame implements ActionListener {
         l1 = new JLabel();
         add(l1);
 
-        JLabel l2 = new JLabel("Nepali Bank");
+        JLabel l2 = new JLabel("NIC Asia Bank");
         l2.setBounds(150, 20, 100, 20);
         add(l2);
 
@@ -35,7 +35,7 @@ public class Ministatement extends JFrame implements ActionListener {
             DBCon c = new DBCon();
             ResultSet rs = c.s.executeQuery("select * from login where pin = '"+pin+"'");
             while(rs.next()){
-                l3.setText("Card Number:    " + rs.getString("cardno").substring(0, 4) + "XXXXXXXX" + rs.getString("cardno").substring(12));
+                l3.setText("Card Number:   " + rs.getString("cardno").substring(0, 4) + "XXXXXXXX" + rs.getString("cardno").substring(12));
             }
         }catch(Exception e){}
 
@@ -44,8 +44,8 @@ public class Ministatement extends JFrame implements ActionListener {
             DBCon c1  = new DBCon();
             ResultSet rs = c1.s.executeQuery("SELECT * FROM bank where pin = '"+pin+"'");
             while(rs.next()){
-                l1.setText(l1.getText() + "<html>"+rs.getString("date")+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("mode") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("amount") + "<br><br><html>");
-                if(rs.getString("mode").equals("Deposit")){
+                l1.setText(l1.getText() + "<html>"+rs.getString("date")+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("type") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("amount") + "<br><br><html>");
+                if(rs.getString("type").equals("Deposit")){
                     balance += Integer.parseInt(rs.getString("amount"));
                 }else{
                     balance -= Integer.parseInt(rs.getString("amount"));

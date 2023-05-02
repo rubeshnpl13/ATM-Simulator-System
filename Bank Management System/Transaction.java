@@ -19,7 +19,7 @@ public class Transaction extends JFrame implements ActionListener {
         add(l2);
 
         l1 = new JLabel("Please Select Your Transaction");
-        l1.setForeground(Color.WHITE);
+        l1.setForeground(Color.RED);
         l1.setFont(new Font("System", Font.BOLD, 16));
 
 

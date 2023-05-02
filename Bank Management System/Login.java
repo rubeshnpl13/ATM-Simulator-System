@@ -11,7 +11,7 @@ public class Login extends JFrame implements ActionListener {
     JTextField cardTextField;
     JPasswordField pinField;
     public Login(){
-        setTitle("BANKING SYSTEM");
+        setTitle("NISHANT BANKING SYSTEM");
         setLayout(null);
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("./icons/logo.jpg"));
         Image i2 = i1.getImage().getScaledInstance(100,100, Image.SCALE_DEFAULT);
@@ -20,13 +20,13 @@ public class Login extends JFrame implements ActionListener {
         label.setBounds(70,10,100,100);
         add(label);
 
-        JLabel text = new JLabel("WELCOME TO KRITIKA");
+        JLabel text = new JLabel("WELCOME TO BANKING ");
         text.setFont(new Font("Osward", Font.BOLD, 38));
         text.setBounds(200,40,600,30);
         add(text);
-        JLabel text2 = new JLabel("BANKING SERVICE");
+        JLabel text2 = new JLabel("SYSTEM");
         text2.setFont(new Font("Osward", Font.BOLD, 38));
-        text2.setBounds(245,70,600,30);
+        text2.setBounds(345,70,600,30);
         add(text2);
 
         JLabel cardno = new JLabel("Card No");

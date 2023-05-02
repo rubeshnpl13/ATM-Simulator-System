@@ -82,7 +82,7 @@ public class Withdraw extends JFrame implements ActionListener {
                         }
                     }
                     if(balance < Integer.parseInt(amount)){
-                        JOptionPane.showMessageDialog(null, "Insuffient Balance");
+                        JOptionPane.showMessageDialog(null, "Insufficient Balance");
                         return;
                     }
 

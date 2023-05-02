@@ -167,7 +167,7 @@ public class Register2 extends JFrame implements ActionListener {
         t1.setBounds(350,390,320,30);
         add(t1);
 
-        l8.setBounds(100,440,180,30);
+        l8.setBounds(100,440,280,30);
         add(l8);
 
         t2.setBounds(350,440,320,30);

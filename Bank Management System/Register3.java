@@ -264,8 +264,9 @@ public class Register3 extends JFrame implements ActionListener {
                     c1.s.executeUpdate(q2);
                     JOptionPane.showMessageDialog(null, "Card Number: " + cardno + "\n Pin:"+ pin);
 
-                   // new Deposit(pin).setVisible(true);
+
                     setVisible(false);
+                    new Login().setVisible(true);
                 }
 
             }else if(ae.getSource()==b2){
