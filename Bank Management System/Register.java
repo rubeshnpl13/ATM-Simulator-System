@@ -14,12 +14,27 @@ public class Register extends JFrame implements ActionListener {
     JButton next;
     JRadioButton male,female,other, married, unmarried;
 
+    JComboBox cbstate, cbcity;
     JDateChooser dateChooser;
 
 
     Random ran = new Random();
     long random = Math.abs((ran.nextLong()%9000L)+1000L);
     String first = "" + Math.abs(random);
+
+    String[] state1 = {"Taplejung" , "Solukhumbu" , "Sankhuwasabha" , "Udayapurn" , "Morang", "Ilam","Jhapa", "Khotang",
+            "Bhojpur", "Panchthar",  "Sunsari" , "Okhaldhunga","Dhankuta","Terhathum"};
+
+    String[] state2 = {"Bara", "Dhanusa", "Mahottari", "Parsa", "Rautahat", "Saptari", "Sarlahi", "Siraha"};
+    String[] state3 = {"Bhaktapur", "District", "Chitwan", "Dhading", "Dolakha","Kathmandu", "Kavrepalanchok", "Lalitpur",
+            "Makawanpur", "Nuwakot", "Ramechhap", "Rasuwa", "Sindhuli", "Sindhupalchok"};
+    String[] state4 = {"Baglung", "Gorkha", "Kaski", "Lamjung", "Manang", "Mustang", "Myagdi", "Nawalparasi", "Parbat", "Syangja",
+            "Tanahu "};
+    String[] state5 = {"Arghakhanchi", "Banke", "Bardiya", "Dang,", "Gulmi", "Kapilvastu", "Nawalparasi", "Palpa", "Pyuthan", "Rolpa",
+            "Purbi Rukum", "Rupandehi"};
+    String[] state6 = {"Dailekh", "Dolpa", "Humla", "Jajarkot", "Jumla", "Kalikot", "Mugu", "Rukum Paschim", "Salyan", "Surkhet"};
+    String[] state7 = {"Achham", "Baitadi", "Bajhang", "Bajura", "Dadeldhura", "Darchula", "Doti", "Kailali", "Kanchanpur"};
+
     public Register(){
         setLayout(null);
 
@@ -101,33 +116,45 @@ public class Register extends JFrame implements ActionListener {
         marriagegroup.add(unmarried);
         marriagegroup.add(other);
 
-        JLabel address = new JLabel("Address:");
-        address.setFont(new Font("Raleway", Font.BOLD, 22));
-        address.setBounds(100,440,200,30);
-        add(address);
-        addressTF = new JTextField();
-        addressTF.setFont(new Font("Raleway", Font.BOLD, 14));
-        addressTF.setBounds(300,440,400,30);
-        add(addressTF);
 
         JLabel state = new JLabel("State:");
         state.setFont(new Font("Raleway", Font.BOLD, 22));
-        state.setBounds(100,490,200,30);
+        state.setBounds(100,440,200,30);
         add(state);
-        stateTF = new JTextField();
-        stateTF.setFont(new Font("Raleway", Font.BOLD, 14));
-        stateTF.setBounds(300,490,400,30);
-        add(stateTF);
 
-        JLabel city = new JLabel("City:");
+        cbstate = new JComboBox();
+        cbstate.addItem("Province 1");
+        cbstate.addItem("Madesh Pradesh");
+        cbstate.addItem("Bagmati Pradesh");
+        cbstate.addItem("Gandaki Pradesh");
+        cbstate.addItem("Lumbini Pradesh");
+        cbstate.addItem("Karnali Pradesh");
+        cbstate.addItem("Sudurpaschim Pradesh");
+
+        cbstate.setFont(new Font("Raleway", Font.BOLD, 14));
+        cbstate.setBounds(300,440,400,30);
+        add(cbstate);
+        cbstate.addActionListener(this);
+
+        JLabel city = new JLabel("District:");
         city.setFont(new Font("Raleway", Font.BOLD, 22));
-        city.setBounds(100,540,200,30);
+        city.setBounds(100,490,200,30);
         add(city);
-        cityTF = new JTextField();
-        cityTF.setFont(new Font("Raleway", Font.BOLD, 14));
-        cityTF.setBounds(300,540,400,30);
-        add(cityTF);
 
+        cbcity =  new JComboBox();
+        cbcity.setBounds(300,490,400,30);
+        cbcity.setFont(new Font("Raleway", Font.BOLD, 14));
+        cbcity.setEnabled(false);
+        add(cbcity);
+
+        JLabel address = new JLabel("City:");
+        address.setFont(new Font("Raleway", Font.BOLD, 22));
+        address.setBounds(100,540,200,30);
+        add(address);
+        addressTF = new JTextField();
+        addressTF.setFont(new Font("Raleway", Font.BOLD, 14));
+        addressTF.setBounds(300,540,400,30);
+        add(addressTF);
 
 
         JLabel pincode = new JLabel("Pin Code:");
@@ -178,9 +205,9 @@ public class Register extends JFrame implements ActionListener {
                 marital_status = "Other";
             }
             String address = addressTF.getText();
-            String city = cityTF.getText();
+            String city = cbcity.getSelectedItem().toString();
             String pin = pinTF.getText();
-            String state = stateTF.getText();
+            String state = cbstate.getSelectedItem().toString();
             try{
                 if(name.equals("")){
                     JOptionPane.showMessageDialog(null, "Name is required");
@@ -196,6 +223,47 @@ public class Register extends JFrame implements ActionListener {
                 ee.printStackTrace();
             }
 
+        }
+        if (e.getSource() == cbstate){
+            String selectedItem = (String) cbstate.getSelectedItem();
+            cbcity.removeAllItems();
+
+            if(selectedItem.equals("Province 1")){
+                for(String item:state1){
+                    cbcity.addItem(item);
+                }
+                cbcity.setEnabled(true);
+            } else if (selectedItem.equals("Madesh Pradesh")) {
+                for (String item:state2){
+                    cbcity.addItem(item);
+                }
+                cbcity.setEnabled(true);
+            } else if (selectedItem.equals("Bagmati Pradesh")) {
+                for(String item:state3){
+                    cbcity.addItem(item);
+                }
+                cbcity.setEnabled(true);
+            } else if (selectedItem.equals("Gandaki Pradesh")) {
+                for(String item:state4){
+                    cbcity.addItem(item);
+                }
+                cbcity.setEnabled(true);
+            } else if (selectedItem.equals("Lumbini Pradesh")) {
+                for (String item:state5){
+                    cbcity.addItem(item);
+                }
+                cbcity.setEnabled(true);
+            } else if (selectedItem.equals("Karnali Pradesh")) {
+                for (String item : state6) {
+                    cbcity.addItem(item);
+                }
+                cbcity.setEnabled(true);
+            }else if(selectedItem.equals("Sudurpaschim Pradesh")){
+                for(String item: state7){
+                    cbcity.addItem(item);
+                }
+                cbcity.setEnabled(true);
+            }
         }
     }
 }
